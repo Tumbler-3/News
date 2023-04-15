@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+   {% load static %}
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>NewsPaperProject</title>     
+      <!-- Standard -->
+      <link rel="shortcut icon" href="static/assets/img/ficon.png" type="text/css">
+      <!-- Latest Bootstrap min CSS -->
+      <link rel="stylesheet" href="static/assets/css/bootstrap.min.css" type="text/css">
+      <!-- Dropdownhover CSS -->
+      <link rel="stylesheet" href="static/assets/css/bootstrap-dropdownhover.min.css" type="text/css">
+      <!-- latest fonts awesome -->
+      <link rel="stylesheet" href="static/assets/font/css/font-awesome.min.css" type="text/css">
+      <!-- Animate CSS -->
+      <link rel="stylesheet" href="static/assets/css/animate.min.css" type="text/css">
+      <!-- Style CSS -->
+      <link rel="stylesheet" href="static/assets/css/style.css" type="text/css">
+      <!-- Owl Carousel Assets -->
+      <link href="static/assets/owl-carousel/owl.carousel.css" rel="stylesheet">
+      <link href="static/assets/owl-carousel/owl.theme.css" rel="stylesheet">
+      <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+   </head>
+   <body>
+      <!--  top header  -->
+      <div class="container">
+         <div class="col-md-12">
+            <!--  top sign  -->
+            <div class="top-sign">
+               <ul>
+                  <li> {{time}} - {{date}}</li>
+                  <li> <a href="#">Subscribe</a>   |   <a href="#">Sign In</a></li>
+               </ul>
+            </div>
+            <!--  top sicon  -->
+            <div class="top-sicon">
+               <ul>
+                  <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                  <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                  <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                  <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                  <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                  <li><a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
+                  <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+               </ul>
+            </div>
+            <!--  /top sicon  -->
+            <div class="top-header">
+               <a class="logo" href="/">NEWS<span>PAPER</span></a>
+            </div>
+         </div>
+      </div>
+      <!--  /top header  -->
+      <!--  nav  -->
+      <nav class="navbar navbar-inverse navbar-default">
+         <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+               <span class="sr-only">Toggle navigation</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               </button>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" data-hover="dropdown" data-animations="fadeIn fadeInLeft fadeInUp fadeInRight">
+               <ul class="nav navbar-nav">
+                  <li>
+                     <a href=""><span>technology</span></a>                     
+                  </li>
+                  <li>
+                     <a href=""><span>company</span></a>
+                  </li>
+                  <li>
+                     <a href=""><span>job</span></a>
+                  </li>
+                  <li class="dropdown">
+                     <a href=""><span>excursion</span></a>
+                  </li>
+                  <li>
+                     <a href=""><span>business</span></a>
+                  </li>
+                  <li>
+                     <a href=""><span>symposium</span></a>
+                  </li>
+               </ul>
+               <div class="searchicon">
+                  <a class="fac" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-search search-icon"></i></a>
+                  <!-- search popup -->
+                  <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">                                    	
+  				  <div class="modal-dialog modal-lg" role="document">  				  
+    				  <div class="modal-content">
+    				  <div class="modal-header">
+        				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>        				
+     				</div>
+      						<div class="search-outer">
+                              <div class="col-md-11"><input type="text" placeholder="Search for products..."/></div>
+                              <div class="col-md-1 text-right"><a href="#"><img src="static/assets/img/search-icon.png" alt="search-icon"/></a></div>
+                           </div>
+    				 </div>
+  				</div>
+				</div>
+				<!-- search popup -->
+               </div>
+               <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+         </div>
+      </nav>
+      <section>
+         <div class="container">
+            <!-- .left content -->   
+            <div class="col-sm-8 col-md-8">
+               <!-- .title -->   
+               <div class="title">
+                  <h2>Latest News</h2>
+                  <ul>
+                     <li><a href="#">All</a></li>
+                     <li><a href="#">Technology</a></li>
+                     <li><a href="#">Company</a></li>
+                     <li><a href="#">Job</a></li>
+                     <li><a href="#">Excursion</a></li>
+                     <li><a href="#">Business</a></li>
+                     <li><a href="#">Symposium</a></li>
+                  </ul>
+               </div>
+               <!-- /.title -->   
+               <div class="col-sm-6 col-md-6 pad">
+                  <div class="blog-content">
+                     <!-- .blog-content -->   
+                     <img src="/media/{{ news_latest.photo }}/" alt="lnimgebig" width="370" height="279"/>      			
+                     <div class="blog-text">
+                        <div class="subject">{{news_latest.tag.name}}</div>
+                        <h3><a href="/post{{ news_latest.id }}">{{news_latest.title}}</a></h3>
+                        <span class="post-date">Posted On {{news_latest.date|date}}</span>      
+                        <span class="post-comment"><i class="fa fa-comments-o" aria-hidden="true"></i> {{news_latest_comments}}</span>
+                        <p>{{news_latest.paragraph1|truncatechars:260}}</p>
+                     </div>
+                     <!-- /.blog-content -->   
+                  </div>
+               </div>
+               <div class="col-sm-6 col-md-6">
+                  {% for new in news %}
+                  <div class="weghiet">
+                     <div class="col-sm-4 col-md-4 pad">
+                        <img src="/media/{{ new.photo }}/" alt="inimgsmall" width="100" height="70"/>
+                     </div>
+                     <div class="col-sm-8 col-md-8 pad">
+                        <h4><a href="/post{{ new.id }}">{{new.title}}</a></h4>
+                        <span class="post-date">Posted On {{new.date|date}}</span>      
+                        <span class="post-comment"><i class="fa fa-comments-o" aria-hidden="true"></i> {{new.num}}</span>      				
+                     </div>
+                  </div>
+                  {% endfor %} 
+               </div>
+               <section class="life-style-post">
+                  <!-- .title -->   
+                  <div class="title">
+                     <h2>Business</h2>
+                  </div>
+                  <!-- /.title -->   
+                  <!-- .life-style-carousel -->
+                  <div class="owl-carousel owl-theme carousel">
+                     <div>
+                        {% for bus in bus_news1 %}
+                        <!-- .life-style-post-text -->   
+                        <div class="life-style-post-text">
+                           <div class="col-sm-4 col-md-4 pad">
+                              <img src="/media/{{ bus.photo }}/" alt="inimgsmall" width="243" height="173"/>
+                           </div>
+                           <div class="col-sm-8 col-md-8">
+                              <!-- .blog-text -->   
+                              <div class="blog-text">
+                                 <h3><a href="/post{{ bus.id }}">{{bus.title}}</a></h3>
+                                 <span class="post-date">Posted On {{bus.date|date}}</span>      
+                                 <span class="post-comment"><i class="fa fa-comments-o" aria-hidden="true"></i> {{bus.com}}</span>
+                                 <p>
+                                    {{bus.paragraph1|truncatechars:260}}
+                                 </p>
+                              </div>
+                              <!-- /.blog-text -->       				
+                           </div>
+                        </div>
+                        <!-- /.life-style-post-text -->  
+                        {% endfor %}
+                     </div>
+                     <div>
+
+                        {% for bus in bus_news2 %}
+                        <!-- .life-style-post-text -->   
+                        <div class="life-style-post-text">
+                           <div class="col-sm-4 col-md-4 pad">
+                              <img src="/media/{{ bus.photo }}/" alt="inimgsmall" width="243" height="173"/>
+                           </div>
+                           <div class="col-sm-8 col-md-8">
+                              <!-- .blog-text -->   
+                              <div class="blog-text">
+                                 <h3><a href="/post{{ bus.id }}">{{bus.title}}</a></h3>
+                                 <span class="post-date">Posted On {{bus.date|date}}</span>      
+                                 <span class="post-comment"><i class="fa fa-comments-o" aria-hidden="true"></i> {{bus.com}}</span>
+                                 <p>
+                                    {{bus.paragraph1|truncatechars:260}}
+                                 </p>
+                              </div>
+                              <!-- /.blog-text -->       				
+                           </div>
+                        </div>
+                        <!-- /.life-style-post-text -->  
+                        {% endfor %} 
+                        
+                     </div>
+                  </div>
+                  <!-- /.life-style-carousel -->
+               </section>
+            </div>
+            <!-- /.left content -->    
+            <!-- .right content -->   
+            <div class="col-sm-4 col-md-4">
+             <!-- .lft-social -->
+               
+               <section class="most-popular">
+                <!-- .most-popular-carousel -->
+                  <!-- .title -->   
+                  <div class="title">
+                     <h2>MOST POPULAR</h2>
+                  </div>
+                  <!-- /.title -->   
+                  <!-- .most-popular-carousel -->
+                  <div class="owl-carousel owl-theme carousel">
+                     <div>
+
+                        {% for pop in pop_news %}   
+                        <div class="weghiet">
+                           <div class="col-sm-4 col-md-4 pad">
+                              <img src="/media/{{ pop.photo }}/" width="100" height="70"/>
+                           </div>
+                           <div class="col-sm-8 col-md-8 pad">
+                              <h4><a href="/post{{ pop.id }}">{{pop.title}}</a></h4>
+                              <span class="post-date">Posted On {{pop.date|date}}</span>      
+                              <span class="post-comment"><i class="fa fa-comments-o" aria-hidden="true"></i> {{pop.com}}</span>      				
+                           </div>
+                        </div>
+                        {% endfor %} 
+                     </div>
+                  </div>
+                  <!-- /.most-popular-carousel -->
+               </section>
+               <section class="recent-comments">
+                <!-- .recent-comments-carousel -->
+                  <!-- .title -->   
+                  <div class="title">
+                     <h2>RECENT COMMENTS</h2>
+                  </div>
+                     <div>
+
+                        {% for com in new_com %}   
+                        <div class="weghiet">
+                           <div class="col-md-12 pad">
+                              <strong>{{com.user.username}}</strong> on {{com.post.title}}.      							
+                           </div>
+                        </div>
+                        {% endfor %}  
+
+                     </div>
+               </section>
+            </div>
+            <!-- /.right content -->  
+         </div>
+      </section>
+       <section>
+         <div class="container">
+          <!-- .title -->   
+            <div class="col-sm-4 col-md-4">
+               <!-- .title -->   
+               <div class="title">
+                  <h2>COMPANY</h2>
+               </div>
+                  <div>
+
+                     {% for comp in comp_news %}   
+                     <div class="weghiet">
+                        <div class="col-sm-4 col-md-4 pad">
+                           <img src="/media/{{ comp.photo }}/" width="100" height="70"/>
+                        </div>
+                        <div class="col-sm-8 col-md-8 pad">
+                           <h4><a href="/post{{ comp.id }}">{{comp.title}}</a></h4>
+                           <span class="post-date">Posted On {{comp.date|date}}</span>      
+                           <span class="post-comment"><i class="fa fa-comments-o" aria-hidden="true"></i> {{comp.com}}</span>      				
+                        </div>
+                     </div>
+                     {% endfor %}  
+                      
+                  </div>
+            </div>
+            <div class="col-sm-4 col-md-4">
+               <!-- .title -->   
+               <div class="title">
+                  <h2>JOB</h2>
+               </div>
+                   <div>
+
+                     {% for job in job_news %}   
+                     <div class="weghiet">
+                        <div class="col-sm-4 col-md-4 pad">
+                           <img src="/media/{{ job.photo }}/" width="100" height="70"/>
+                        </div>
+                        <div class="col-sm-8 col-md-8 pad">
+                           <h4><a href="/post{{ job.id }}">{{job.title}}</a></h4>
+                           <span class="post-date">Posted On {{job.date|date}}</span>      
+                           <span class="post-comment"><i class="fa fa-comments-o" aria-hidden="true"></i> {{job.com}}</span>      				
+                        </div>
+                     </div>
+                     {% endfor %}  
+                      
+                  </div>
+            </div>
+            <div class="col-sm-4 col-md-4">
+               <!-- .title -->   
+               <div class="title">
+                  <h2>EXCURSION</h2>
+               </div>
+               <!-- /.title -->   
+               <!-- .food-carousel -->
+                  <div>
+
+                     {% for ex in ex_news %}   
+                     <div class="weghiet">
+                        <div class="col-sm-4 col-md-4 pad">
+                           <img src="/media/{{ ex.photo }}/" width="100" height="70"/>
+                        </div>
+                        <div class="col-sm-8 col-md-8 pad">
+                           <h4><a href="/post{{ ex.id }}">{{ex.title}}</a></h4>
+                           <span class="post-date">Posted On {{ex.date|date}}</span>      
+                           <span class="post-comment"><i class="fa fa-comments-o" aria-hidden="true"></i> {{ex.com}}</span>      				
+                        </div>
+                     </div>
+                     {% endfor %}  
+                                             
+                  </div>
+            </div>
+         </div>
+      </section>
+      <footer>
+         <div class="container">
+            <div class="col-md-12">
+             <!-- .socail-icon -->
+               <ul class="socail-icon">
+                  <li>
+                     <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i> FACEBOOK</a>
+                  </li>
+                  <li>
+                     <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a>
+                  </li>
+                  <li>
+                     <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i> GOOGLE +</a>
+                  </li>
+                  <li>
+                     <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i> linkedin</a>
+                  </li>
+                  <li>
+                     <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i> Instagram</a>
+                  </li>
+                  <li>
+                     <a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i> VIMEO</a>
+                  </li>
+                  <li>
+                     <a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i> YOUTUBE</a>
+                  </li>
+               </ul>
+               <!-- /.socail-icon -->
+            </div>
+            <div class="col-sm-4 col-md-4">
+            	<!-- footer-weghiet1 -->
+               <a class="logo" href="#">NEWS<span>PAPER</span></a>
+               <p>NEWS PAPER is your news, entertainment, music fashion website. We provide you with the latest breaking news and videos straight from the 
+                  entertainment industry.
+               </p>
+               <div class="newslater">
+                  <input name="email" placeholder="Your email" type="text"/>
+                  <button><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+               </div>
+              <!-- / footer-weghiet1 -->
+            </div>
+            <div class="col-sm-4 col-md-4">
+            	<!-- footer-weghiet2 -->
+               <div class="col-sm-6 col-md-6 catf">
+                  <h2>About Us</h2>
+                  <ul>
+                     <li><a href="#">History</a></li>
+                     <li><a href="#">Our Team</a></li>
+                     <li><a href="#">Awards</a></li>
+                     <li><a href="#">Safety</a></li>
+                     <li><a href="#">Careers</a></li>
+                  </ul>
+               </div>
+               <div class="col-sm-6 col-md-6 catf">
+                  <h2>Category</h2>
+                  <ul>
+                     <li><a href="#">Life Style</a></li>
+                     <li><a href="#">Tech</a></li>
+                     <li><a href="#">Sports</a></li>
+                     <li><a href="#">Entertainment</a></li>
+                     <li><a href="#">Travel</a></li>
+                  </ul>
+               </div>
+               <!-- /footer-weghiet2 -->
+            </div>
+            <div class="col-sm-4 col-md-4 catf">
+           	 <!-- footer-weghiet4 -->
+               <h2>Recent Posts</h2>
+
+               {% for rec in rec_news %}
+               <div class="weghiet">
+                  <div class="col-sm-4 col-md-4 pad">
+                     <img src="/media/{{ rec.photo }}/" width="70" height="70"/>
+                  </div>
+                  <div class="col-sm-8 col-md-8 pad">
+                     <h4><a href="/post{{ rec.id }}">{{rec.title}}</a></h4>
+                     <span class="post-date">Posted On {{rec.date|date}}</span>      
+                     <span class="post-comment"><i class="fa fa-comments-o" aria-hidden="true"></i> {{rec.com}}</span>      				
+                  </div>
+               </div>
+               {% endfor %}
+               
+            </div>
+         </div>
+      </footer>
+   </body>
+</html>
+
