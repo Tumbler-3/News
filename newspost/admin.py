@@ -1,6 +1,6 @@
 from django.contrib import admin
-from newspost.models import NewsPost, Comment, Tag
+from newspost.models import NewsPostModel, CommentModel, TagModel
 
-admin.site.register(Tag)
-admin.site.register(NewsPost)
-admin.site.register(Comment)
+admin.site.register(TagModel)
+admin.site.register(NewsPostModel)
+admin.site.register(CommentModel)

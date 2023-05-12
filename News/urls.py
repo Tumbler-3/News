@@ -15,14 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from newspost.views import main_view, post_view
+from newspost.views import main_view, single_view, post_create_view
 from django.conf.urls.static import static
 from News import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', main_view),
-    path('post<int:id>/', post_view),
+    path('post<int:id>/', single_view),
+    path('postcreate/', post_create_view)
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
