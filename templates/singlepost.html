@@ -7,42 +7,20 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <title>NewsPaperProject</title>
-   <!-- Standard -->
-   <link rel="shortcut icon" href="{% static 'assets/img/ficon.png' %}" type="text/css">
-   <!-- Latest Bootstrap min CSS -->
    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}" type="text/css">
-   <!-- Dropdownhover CSS -->
-   <link rel="stylesheet" href="{% static 'assets/css/bootstrap-dropdownhover.min.css' %}" type="text/css">
-   <!-- latest fonts awesome -->
    <link rel="stylesheet" href="{% static 'assets/font/css/font-awesome.min.css' %}" type="text/css">
-   <!-- Animate CSS -->
-   <link rel="stylesheet" href="{% static 'assets/css/animate.min.css' %}" type="text/css">
-   <!-- Style CSS -->
    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" type="text/css">
-   <!--  baguetteBox -->
-   <link rel="stylesheet" href="{% static 'assets/css/baguetteBox.css' %}" type="text/css">
-   <!-- Owl Carousel Assets -->
-   <link href="{% static 'assets/owl-carousel/owl.carousel.css' %}" rel="stylesheet" type="text/css">
-   <link href="{% static 'assets/owl-carousel/owl.theme.css' %}" rel="stylesheet" type="text/css">
-   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-   <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-      <![endif]-->
 </head>
 
 <body>
    <div class="container">
       <div class="col-md-12">
-         <!--  top sign  -->
          <div class="top-sign">
             <ul>
                <li> {{time}} - {{date}}</li>
-               <li> <a href="#">Subscribe</a> | <a href="#">Sign In</a></li>
+               <li>{% if user %}<a href="/logout">Log Out</a>{% else %}<a href="/login">Sign In or Register</a>{% endif %}</li>
             </ul>
          </div>
-         <!--  top sicon  -->
          <div class="top-sicon">
             <ul>
                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -54,76 +32,41 @@
                <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
             </ul>
          </div>
-         <!--  top header  -->
          <div class="top-header">
             <a class="logo" href="/">NEWS<span>PAPER</span></a>
          </div>
       </div>
    </div>
-   <!--  nav  -->
    <nav class="navbar navbar-inverse navbar-default">
       <div class="container">
-         <!-- Brand and toggle get grouped for better mobile display -->
-         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-               data-target="#bs-example-navbar-collapse-1">
-               <span class="sr-only">Toggle navigation</span>
-               <span class="icon-bar"></span>
-               <span class="icon-bar"></span>
-               <span class="icon-bar"></span>
-            </button>
-         </div>
-         <!-- Collect the nav links, forms, and other content for toggling -->
          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" data-hover="dropdown"
             data-animations="fadeIn fadeInLeft fadeInUp fadeInRight">
             <ul class="nav navbar-nav">
                <li>
-                  <a href=""><span>technology</span></a>
+                  <a href="/latest/Technology"><span>Technology</span></a>
                </li>
                <li>
-                  <a href=""><span>company</span></a>
+                  <a href="/latest/Company"><span>Company</span></a>
                </li>
                <li>
-                  <a href=""><span>job</span></a>
+                  <a href="/latest/Job"><span>Job</span></a>
                </li>
                <li class="dropdown">
-                  <a href=""><span>excursion</span></a>
+                  <a href="/latest/Excursion"><span>Excursion</span></a>
                </li>
                <li>
-                  <a href=""><span>business</span></a>
+                  <a href="/latest/Business"><span>Business</span></a>
                </li>
                <li>
-                  <a href=""><span>symposium</span></a>
+                  <a href="/latest/Symposium"><span>Symposium</span></a>
                </li>
+               {% if user.is_superuser %}
                <li>
                   <a href="/postcreate/"><span>Create Post</span></a>
                </li>
+               {% endif %}
             </ul>
-            <div class="searchicon">
-               <a class="fac" data-toggle="modal" data-target=".bs-example-modal-lg"><i
-                     class="fa fa-search search-icon"></i></a>
-               <!-- search popup -->
-               <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog"
-                  aria-labelledby="myLargeModalLabel">
-                  <div class="modal-dialog modal-lg" role="document">
-                     <div class="modal-content">
-                        <div class="modal-header">
-                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                 aria-hidden="true">&times;</span></button>
-                        </div>
-                        <div class="search-outer">
-                           <div class="col-md-11"><input type="text" placeholder="Search for products..." /></div>
-                           <div class="col-md-1 text-right"><a href="#"><img
-                                    src="{% static 'assets/img/search-icon.png' %}" alt="search-icon" /></a></div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <!-- search popup -->
-            </div>
-            <!-- /.navbar-collapse -->
          </div>
-         <!-- /.container-fluid -->
       </div>
    </nav>
    <header class="inner-header">
@@ -136,18 +79,15 @@
    </header>
    <section>
       <div class="container">
-         <!-- .left content -->
          <div class="col-sm-8 col-md-8">
             <div class="col-md-12">
                <div class="row">
                   <div class="col-md-12 pad" data-category="1, 5" data-sort="Busy streets">
-                     <!-- .grid -->
                      <div class="life-style-post-text grid2">
                         <div class="col-md-12 pad">
                            <img src="/media/{{ post.photo }}" width="770" height="500" />
                         </div>
                         <div class="col-md-12 pad">
-                           <!-- .blog-text -->
                            <div class="blog-text-post">
                               <span class="post-date">{{post.date|date}} | in {{post.tag.name}} | by
                                  {{post.creator}}</span>
@@ -155,7 +95,6 @@
                               {% if post.paragraph2%}
                               <p>{{post.paragraph2}}</p>
                               {% endif %}
-                              <!-- .comment-replay -->
                               <div class="comments-area">
 
                                  <div id="respond" class="comment-respond comment-replay">
@@ -174,7 +113,7 @@
                                        <div class="row">
                                           <div class="col-sm-6 col-md-6">
                                              <span class="post-date">{{com.date|date}}</span>
-                                             <h4><a href="#">{{com.user}}</a></h4>
+                                             <h4>{{com.user.name}}</h4>
                                           </div>
                                        </div>
                                        <p>{{com.text}}</p>
@@ -183,77 +122,54 @@
                                  </div>
 
                               </div>
-                              <!-- /.comment-replay -->
-                              <!-- .comments -->
                               <div id="comments" class="comments-area">
                                  <div id="respond" class="comment-respond">
                                     <h3 id="reply-title" class="comment-reply-title"><span>Leave a comment</span></h3>
-                                    <form action="#" method="post" id="commentform" class="comment-form">
-                                       <p class="comment-form-author"><input id="author" name="author" value=""
-                                             size="30" placeholder="Name" type="text"></p>
-                                       <p class="comment-form-email"><input id="email" name="email" value="" size="30"
-                                             placeholder="Email" type="text"></p>
-                                       <p class="comment-form-author"><input id="author" name="Website" value=""
-                                             size="30" placeholder="Website" type="text"></p>
-                                       <p class="comment-form-comment"><textarea id="comment" name="comment" cols="45"
-                                             rows="8" placeholder="Comment" aria-required="true"></textarea></p>
+                                    <form action="/post{{ post.id }}/" method="post" id="commentform" class="comment-form">
+                                       {% csrf_token %}
+                                       <p class="comment-form-comment">{{commentform.as_p}}</p>
                                        <p class="form-submit"><input name="submit" id="submit" class="btn btn-secondary"
                                              value="send messages" type="submit">
                                        </p>
                                     </form>
                                  </div>
                               </div>
-                              <!-- /.comments -->
                            </div>
-                           <!-- /.blog-text -->
                         </div>
                      </div>
-                     <!-- /.grid -->
                   </div>
                </div>
             </div>
          </div>
-         <!-- /.left content -->
-         <!-- .right content -->
          <div class="col-sm-4 col-md-4">
             <section class="most-popular">
-               <!-- .title -->
                <div class="title">
                   <h2>MOST POPULAR</h2>
                </div>
-               <!-- /.title -->
-               <!-- .most-popular-carousel -->
-               <div class="owl-carousel owl-theme carousel">
+               <div>
                   <div>
-
                      {% for pop in pop_news %}
                      <div class="weghiet">
                         <div class="col-sm-4 col-md-4 pad">
                            <img src="/media/{{ pop.photo }}/" width="100" height="70" />
                         </div>
                         <div class="col-sm-8 col-md-8 pad">
-                           <h4><a href="/post{{ pop.id }}">{{pop.title}}</a></h4>
+                           <h4><a href="/post{{ pop.id }}/">{{pop.title}}</a></h4>
                            <span class="post-date">Posted On {{pop.date|date}}</span>
                            <span class="post-comment"><i class="fa fa-comments-o" aria-hidden="true"></i>
                               {{pop.com}}</span>
                         </div>
                      </div>
                      {% endfor %}
-
                   </div>
                </div>
-               <!-- /.most-popular-carousel -->
             </section>
             <section class="recent-comments">
-               <!-- .title -->
                <div class="title">
                   <h2>RECENT COMMENTS</h2>
                </div>
-               <!-- /.title -->
-               <!-- .recent-comments-carousel -->
                <div class="owl-carousel owl-theme carousel">
                   <div>
-
                      {% for com in new_com %}
                      <div class="weghiet">
                         <div class="col-md-12 pad">
@@ -261,13 +177,10 @@
                         </div>
                      </div>
                      {% endfor %}
-
                   </div>
                </div>
-               <!-- /.latest-reviews-carousel -->
             </section>
          </div>
-         <!-- /.right content -->
       </div>
    </section>
    <footer>
@@ -278,10 +191,6 @@
                news and videos straight from the
                entertainment industry.
             </p>
-            <div class="newslater">
-               <input name="email" placeholder="Your email" type="text" />
-               <button><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-            </div>
          </div>
          <div class="col-sm-4 col-md-4">
             <div class="col-sm-6 col-md-6 catf">
@@ -313,7 +222,7 @@
                   <img src="/media/{{ rec.photo }}/" width="70" height="70" />
                </div>
                <div class="col-sm-8 col-md-8 pad">
-                  <h4><a href="/post{{ rec.id }}">{{rec.title}}</a></h4>
+                  <h4><a href="/post{{ rec.id }}/">{{rec.title}}</a></h4>
                   <span class="post-date">Posted On {{rec.date|date}}</span>
                   <span class="post-comment"><i class="fa fa-comments-o" aria-hidden="true"></i> {{rec.com}}</span>
                </div>

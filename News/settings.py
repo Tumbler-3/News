@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-img@rq$r(@jvr4%-z39#s%^2j&f6rtm%hs$(97kiv5hmzkg2(l'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'newspost',
+    'user',
 ]
 
 MIDDLEWARE = [
@@ -123,12 +124,17 @@ MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 STATIC_URL = 'static/'
-#STATIC_ROOT = BASE_DIR / 'static'
-STATICFILES_DIRS = [
-   BASE_DIR / 'static',
-   ]
+STATIC_ROOT = BASE_DIR / 'static'
+#STATICFILES_DIRS = [
+#   BASE_DIR / 'static',
+#   ]
+
+PAGINATION_LIMIT = 6
+
+AUTH_USER_MODEL = 'user.User'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+

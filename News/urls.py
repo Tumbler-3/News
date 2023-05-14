@@ -15,15 +15,23 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from newspost.views import main_view, single_view, post_create_view
-from django.conf.urls.static import static
+from newspost.views import main_view, single_view, post_create_view, post_tag_view
+from user.views import log_reg_view, logout_view
 from News import settings
+from django.views.static import serve 
+from django.urls import re_path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', main_view),
     path('post<int:id>/', single_view),
-    path('postcreate/', post_create_view)
+    path('postcreate/', post_create_view),
+    path('latest/', post_tag_view),
+    path('latest/<slug:slug>', post_tag_view),
+    path('login/', log_reg_view),
+    path('logout/', logout_view),
+    re_path(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),
+    re_path(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 
+    
 ]
 
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -10,7 +10,6 @@
    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}" type="text/css">
    <link rel="stylesheet" href="{% static 'assets/font/css/font-awesome.min.css' %}" type="text/css">
    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" type="text/css">
-   <link href="{% static 'assets/css/form.css' %}" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -40,15 +39,6 @@
    </div>
    <nav class="navbar navbar-inverse navbar-default">
       <div class="container">
-         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-               data-target="#bs-example-navbar-collapse-1">
-               <span class="sr-only">Toggle navigation</span>
-               <span class="icon-bar"></span>
-               <span class="icon-bar"></span>
-               <span class="icon-bar"></span>
-            </button>
-         </div>
          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" data-hover="dropdown"
             data-animations="fadeIn fadeInLeft fadeInUp fadeInRight">
             <ul class="nav navbar-nav">
@@ -79,85 +69,125 @@
          </div>
       </div>
    </nav>
-   <form action="/postcreate/" method="POST" enctype="multipart/form-data">
-      {% csrf_token %}
-      <header class="inner-header">
-         <div class="container">
-            <div class="col-sm-6 col-md-6">
-               {{ form.title }}
-               {{ form.tag }}
-            </div>
+   <header class="inner-header">
+      <div class="container">
+         <div class="col-sm-6 col-md-6">
+            <span>Home / Latest News / {% if tag %} {{tag}} {% endif %}</span>
+            <h1>Latest News {% if tag %} - {{tag}} {% endif %} - List</h1>
          </div>
-      </header>
-      <section>
-         <div class="container">
-            <div class="col-sm-8 col-md-8">
-               <div class="col-md-12">
-                  <div class="row">
-                     <div class="col-md-12 pad" data-category="1, 5" data-sort="Busy streets">
-                        <div class="life-style-post-text grid2">
-                           <div class="drag-area">
-                              <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
-                              <header>Upload File</header>
-                              {{ form.photo }}
-                           </div>
-                           <div class="col-md-12 pad">
-                              <div class="blog-text-post">
-                                 {{form.paragraph1}}
-                                 {{form.paragraph1}}
-                                 <input type="submit" class="btn-primary">
-                              </div>
-                           </div>
-                        </div>
+      </div>
+   </header>
+   <section>
+      <div class="container">
+         <div class="col-sm-8 col-md-8">
+            <div class="title title-bg">
+               <ul class="simplefilter">
+                  <li><a href="/latest/">All</a></li>
+                  <li><a href="/latest/Technology">Technology</a></li>
+                  <li><a href="/latest/Company">Company</a></li>
+                  <li><a href="/latest/Job">Job</a></li>
+                  <li><a href="/latest/Excursion">Excursion</a></li>
+                  <li><a href="/latest/Business">Business</a></li>
+                  <li><a href="/latest/Symposium">Symposium</a></li>
+               </ul>
+            </div>
+            <div class="col-md-12 pad filtr-container">
+               {% for post in posts %}
+               <div class="life-style-post-text filtr-item" data-category="1, 5" data-sort="Busy streets">
+                  <div class="col-sm-4 col-md-4 pad">
+                     <img src="/media/{{ post.photo }}/" alt="ls-img" width="243" height="173" />
+                  </div>
+                  <div class="col-sm-8 col-md-8">
+                     <div class="blog-text">
+                        <h3><a href="/post{{ post.id }}">{{post.title}}</a></h3>
+                        <span class="post-date">Posted On {{post.date|date}}</span>
+                        <span class="post-comment"><i class="fa fa-comments-o" aria-hidden="true"></i>
+                           {{post.com}}</span>
+                        <p>{{post.paragraph1|truncatechars:260}}</p>
                      </div>
                   </div>
                </div>
+               {% endfor %}
             </div>
-            <div class="col-sm-4 col-md-4">
-               <section class="most-popular">
-                  <div class="title">
-                     <h2>MOST POPULAR</h2>
-                  </div>
-                  <div>
-                     <div>
-                        {% for pop in pop_news %}
-                        <div class="weghiet">
-                           <div class="col-sm-4 col-md-4 pad">
-                              <img src="/media/{{ pop.photo }}/" width="100" height="70" />
-                           </div>
-                           <div class="col-sm-8 col-md-8 pad">
-                              <h4><a href="/post{{ pop.id }}">{{pop.title}}</a></h4>
-                              <span class="post-date">Posted On {{pop.date|date}}</span>
-                              <span class="post-comment"><i class="fa fa-comments-o" aria-hidden="true"></i>
-                                 {{pop.com}}</span>
-                           </div>
-                        </div>
-                        {% endfor %}
-                     </div>
-                  </div>
-               </section>
-               <section class="recent-comments">
-                  <div class="title">
-                     <h2>RECENT COMMENTS</h2>
-                  </div>
-                  <div class="owl-carousel owl-theme carousel">
-                     <div>
-                        {% for com in new_com %}
-                        <div class="weghiet">
-                           <div class="col-md-12 pad">
-                              <strong>{{com.user.username}}</strong> on {{com.post.title}}.
-                           </div>
-                        </div>
-                        {% endfor %}
-                     </div>
-                  </div>
-               </section>
+            <div class="pagetions">
+               <div class="col-sm-8 col-md-8 text-center">
+                  <ul>
+                     {% for page in pages %}
+                     <li><a href="/latest/{{tag}}?page={{page}}">{{page}}</a></li>
+                     {% endfor %}
+                  </ul>
+               </div>
             </div>
          </div>
-      </section>
-   </form>
+         <div class="col-sm-4 col-md-4">
+            <section class="most-popular">
+               <div class="title">
+                  <h2>MOST POPULAR</h2>
+               </div>
+               <div>
+                  <div>
+                     {% for pop in pop_news %}
+                     <div class="weghiet">
+                        <div class="col-sm-4 col-md-4 pad">
+                           <img src="/media/{{ pop.photo }}/" width="100" height="70" />
+                        </div>
+                        <div class="col-sm-8 col-md-8 pad">
+                           <h4><a href="/post{{ pop.id }}">{{pop.title}}</a></h4>
+                           <span class="post-date">Posted On {{pop.date|date}}</span>
+                           <span class="post-comment"><i class="fa fa-comments-o" aria-hidden="true"></i>
+                              {{pop.com}}</span>
+                        </div>
+                     </div>
+                     {% endfor %}
+                  </div>
+               </div>
+            </section>
+            <section class="recent-comments">
+               <div class="title">
+                  <h2>RECENT COMMENTS</h2>
+               </div>
+               <div>
+                  <div>
+                     {% for com in new_com %}
+                     <div class="weghiet">
+                        <div class="col-md-12 pad">
+                           <strong>{{com.user.username}}</strong> on {{com.post.title}}.
+                        </div>
+                     </div>
+                     {% endfor %}
+                  </div>
+               </div>
+            </section>
+         </div>
+      </div>
+   </section>
    <footer>
       <div class="container">
+         <div class="col-md-12">
+            <ul class="socail-icon">
+               <li>
+                  <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i> FACEBOOK</a>
+               </li>
+               <li>
+                  <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a>
+               </li>
+               <li>
+                  <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i> GOOGLE +</a>
+               </li>
+               <li>
+                  <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i> linkedin</a>
+               </li>
+               <li>
+                  <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i> Instagram</a>
+               </li>
+               <li>
+                  <a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i> VIMEO</a>
+               </li>
+               <li>
+                  <a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i> YOUTOBE</a>
+               </li>
+            </ul>
+         </div>
          <div class="col-sm-4 col-md-4">
             <a class="logo" href="#">NEWS<span>PAPER</span></a>
             <p>NEWS PAPER is your news, entertainment, music fashion website. We provide you with the latest breaking

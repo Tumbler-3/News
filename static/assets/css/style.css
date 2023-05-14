@@ -252,13 +252,13 @@ select {
 }
 .error404 h1 {
     margin-bottom: 25px;
-    margin-top: 80px;
+    margin-top: 5px;
 }
 .error404 {
     padding: 50px 0;
 }
 .error404 p {
-    margin-bottom: 80px;
+    margin-bottom: 30px;
 }
 .error404 a {
     background: #222626 none repeat scroll 0 0;
