@@ -20,6 +20,8 @@ from user.views import log_reg_view, logout_view
 from News import settings
 from django.views.static import serve 
 from django.urls import re_path
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -34,4 +36,3 @@ urlpatterns = [
     re_path(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 
     
 ]
-

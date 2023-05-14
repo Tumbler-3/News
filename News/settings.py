@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-img@rq$r(@jvr4%-z39#s%^2j&f6rtm%hs$(97kiv5hmzkg2(l'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -129,7 +129,7 @@ STATIC_ROOT = BASE_DIR / 'static'
 #   BASE_DIR / 'static',
 #   ]
 
-PAGINATION_LIMIT = 6
+PAGINATION_LIMIT = 4
 
 AUTH_USER_MODEL = 'user.User'
 

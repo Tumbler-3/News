@@ -110,7 +110,7 @@
                {% endfor %}
             </div>
             <div class="pagetions">
-               <div class="col-sm-8 col-md-8 text-center">
+               <div class="col-sm-16 col-md-16 text-center">
                   <ul>
                      {% for page in pages %}
                      <li><a href="/latest/{{tag}}?page={{page}}">{{page}}</a></li>
@@ -151,7 +151,7 @@
                      {% for com in new_com %}
                      <div class="weghiet">
                         <div class="col-md-12 pad">
-                           <strong>{{com.user.username}}</strong> on {{com.post.title}}.
+                           <strong>{{com.user.name}}</strong> on {{com.post.title}}.
                         </div>
                      </div>
                      {% endfor %}

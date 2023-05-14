@@ -11,6 +11,7 @@ class NewsPostForm(forms.ModelForm):
         widgets = {
             'tag': forms.Select(attrs={'placeholder': 'Choose tag'}),
             'paragraph1': forms.Textarea(attrs={'cols': '110', 'rows': '12', 'class': 'formtext', 'style': "background-color: #ededed; font-size: 14px; padding-left: 10px;", 'placeholder': 'Write a paragraph'}),
+            'paragraph2': forms.Textarea(attrs={'cols': '110', 'rows': '12', 'class': 'formtext', 'style': "background-color: #ededed; font-size: 14px; padding-left: 10px;", 'placeholder': 'Write a paragraph'}),            
             'title': forms.TextInput(attrs={'style': "background-color: #ededed; font-size: 36px; width: 350px; padding-left: 10px;", 'placeholder': 'Write a title'}),
         }
 
