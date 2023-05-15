@@ -156,7 +156,7 @@ def post_create_view(request):
     
     user = None if request.user.is_anonymous else request.user
     
-    if user.is_superuser == False or user == None:
+    if user==None or user.is_superuser==False:
         return redirect('/')
 
     pop_news = NewsPostModel.objects.order_by('-views')[0:6]
